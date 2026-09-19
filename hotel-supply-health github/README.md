@@ -3,7 +3,7 @@
 
 **Aakanksha Baid** — Analytics Strategy Leader · [LinkedIn](https://linkedin.com/in/aakankshabaid/) · [GitHub](https://github.com/AakankshaBaid)
 
-![Hero](assets/hero_banner.png)<img width="2038" height="553" alt="hero_banner" src="https://github.com/user-attachments/assets/eef911ca-6887-40f9-9530-4499f78ea300" />
+<img width="2038" height="553" alt="hero_banner" src="https://github.com/user-attachments/assets/eef911ca-6887-40f9-9530-4499f78ea300" />
 
 ---
 
@@ -47,7 +47,7 @@ This is a public, fully-synthetic demonstration of a methodology used profession
 
 ## Methodology
 
-![Approach](assets/approach_pipeline.png)
+<img width="2067" height="437" alt="approach_pipeline" src="https://github.com/user-attachments/assets/02f53011-1bf4-40c5-8f0a-344f706263e2" />
 
 1. **Hypothesis** — whether a hotel's profit is at least more than its competitive set's average is predictable from signals a partner-success team already has: content quality, price/discount position, availability, guest experience
 2. **Data** — 150,000 synthetic hotel-partner records from a seeded generative process, including a 12-month time dimension; realistic imbalance and missingness
