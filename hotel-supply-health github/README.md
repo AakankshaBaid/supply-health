@@ -16,18 +16,18 @@ This is a public, fully-synthetic demonstration of a methodology used profession
 
 ---
 
-## North Star Metric
-
-**Outreach Efficiency Lift** — how much further the same partner-success team gets when their time is directed by this ranking instead of unprioritized coverage. Every decision in this project is judged against whether it moves this number. Current result: **1.98x — nearly double the results, with zero added headcount.**
-
----
-
 ## Business Problem
 
 - Hotel partners may quietly earn less than comparable properties nearby, often for reasons like: thin content, pricing out of step with the market, limited room availability
-- Partner-success teams can fix these issues, but can't reach every partner every cycle due to time constraint
+- Partner-success teams can fix these issues, but can't reach every partner every cycle due to time constraints
 - Today, a struggling partner is typically only caught *after* the fact: a complaint, a bad review, or a disappointing number already on the books
 - **The decision this supports:** which partners should a capacity-constrained team call first this week, to catch a problem while it's still fixable?
+
+---
+
+## North Star Metric
+
+**Outreach Efficiency Lift** — how much further the same partner-success team gets when their time is directed by this ranking instead of unprioritized coverage. Every decision in this project is judged against whether it moves this number. Current result: **1.98x — nearly double the results, with zero added headcount.**
 
 ---
 
@@ -48,7 +48,7 @@ This is a public, fully-synthetic demonstration of a methodology used profession
 
 <img width="2067" height="437" alt="approach_pipeline" src="https://github.com/user-attachments/assets/02f53011-1bf4-40c5-8f0a-344f706263e2" />
 
-1. **Hypothesis** — whether a hotel's profit is at least more than its competitive set's average is predictable from signals a partner-success team already has: content quality, price/discount position, availability, guest experience
+1. **Hypothesis** — whether a hotel's profit is at least higher than its competitive set's average is predictable from signals a partner-success team already has: content quality, price/discount position, availability, guest experience
 2. **Data** — 150,000 synthetic hotel-partner records from a seeded generative process, including a 12-month time dimension; realistic imbalance and missingness
 3. **Data Quality Audit** — missingness tied to partner tenure/content investment
 4. **EDA** — univariate + correlation analysis to form hypotheses pre-modeling
