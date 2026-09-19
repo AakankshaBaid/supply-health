@@ -1,4 +1,4 @@
-# Marketplace Supply Health Early-Warning System
+# Travel Marketplace Supply Health Performance
 
 **Aakanksha Baid** — Analytics Strategy Leader · [LinkedIn](https://linkedin.com/in/aakankshabaid/) · [GitHub](https://github.com/AakankshaBaid)
 
@@ -8,7 +8,7 @@
 
 ## Executive Summary
 
-This project delivers an early-warning system that flags which hotel partners are on track to earn **less profit than comparable properties nearby** — weeks before that shortfall would otherwise surface in a quarterly business review. Rather than handing a partner-success team a list of thousands of accounts to review in no particular order, it hands them a short, ranked list sized to what the team can actually act on this cycle.
+This project delivers an early-warning system that flags which hotel partners are on track to earn **less profit than comparable properties nearby (compset)** — weeks before that shortfall would otherwise surface in a quarterly business review. Rather than handing a partner-success team a random list of thousands of accounts to review, it hands them a short, ranked list sized to what the team can actually act on this cycle.
 
 **Bottom line:** working the top 20% of that ranked list catches roughly **4 in 10 true underperformers — nearly double what the same team would catch working accounts in random order — using the exact same headcount and hours already budgeted.**
 
@@ -24,8 +24,8 @@ This is a public, fully-synthetic demonstration of a methodology used profession
 
 ## Business Problem
 
-- Some hotel partners quietly earn less than comparable properties nearby — often for reasons that are entirely fixable: thin content, pricing out of step with the market, limited room availability
-- Partner-success teams can fix these issues, but can't reach every partner every cycle — the constraint is time, not will
+- Hotel partners may quietly earn less than comparable properties nearby, often for reasons like: thin content, pricing out of step with the market, limited room availability
+- Partner-success teams can fix these issues, but can't reach every partner every cycle due to time constraint
 - Today, a struggling partner is typically only caught *after* the fact: a complaint, a bad review, or a disappointing number already on the books
 - **The decision this supports:** which partners should a capacity-constrained team call first this week, to catch a problem while it's still fixable?
 
@@ -48,9 +48,9 @@ This is a public, fully-synthetic demonstration of a methodology used profession
 
 ![Approach](assets/approach_pipeline.png)
 
-1. **Hypothesis** — whether a hotel's profit clears its competitive set's average is predictable from signals a partner-success team already has: content quality, price/discount position, availability, guest experience
+1. **Hypothesis** — whether a hotel's profit is at least more than its competitive set's average is predictable from signals a partner-success team already has: content quality, price/discount position, availability, guest experience
 2. **Data** — 150,000 synthetic hotel-partner records from a seeded generative process, including a 12-month time dimension; realistic imbalance and missingness
-3. **Data Quality Audit** — missingness tied to partner tenure/content investment, not random
+3. **Data Quality Audit** — missingness tied to partner tenure/content investment
 4. **EDA** — univariate + correlation analysis to form hypotheses pre-modeling
 5. **Preprocessing** — median/mode imputation, feature scaling, one-hot encoding, leakage-safe `Pipeline`
 6. **Modeling** — Logistic Regression vs. balanced Random Forest vs. weighted XGBoost
@@ -108,24 +108,24 @@ A model that looks good on paper can still fail in the real world in specific, p
 
 ![Validation Dashboard](assets/validation_dashboard.png)
 
-| Check | Plain-language question | Result |
+| Validation | Question | Result |
 |---|---|---|
 | **Calibration** | If the model says a partner has a 70% chance of underperforming, does that mean exactly 70%? | Not precisely — which is exactly why this tool is delivered as a **ranked list**, not a raw percentage. Rankings hold up even when the underlying number is imprecise. |
-| **Out-of-Time Validation** | Does the model still work months from now, or only on the data it was built on? | Holds up. Tested on 3 months of data the model never saw during training — performance matched (in fact slightly exceeded) results on familiar data. |
+| **Out-of-Time Validation** | Does the model still work months from now, or only on the data it was built on? | Holds up. Tested on 3 months of data the model never saw during training — performance matched (slightly exceeded) results on familiar data. |
 | **Subgroup Performance** | Does it work equally well across every market and region, or does it quietly fail one segment? | Consistent. Performance varies by under 2 points across every market segment and region tested — no group is being underserved. |
 | **Hyperparameter Tuning** | Is this the best version of the model, or is there easy performance left on the table? | Already near the ceiling. An automated search across a dozen configurations found nothing worth changing — the model isn't under-built. |
 | **Class Imbalance Handling** | Underperforming partners are the minority in this data — does the model just learn to ignore them? | Corrected for. Without adjustment, the model would miss 2 in 3 true underperformers at a standard cutoff; the correction applied more than doubles that catch rate. |
 | **Selection Bias** | If this were trained only on the partners a team already pays attention to, would it still work on everyone else? | Passed this specific test — with a caveat: this check should be re-run the moment the model is trained on real historical data, since real-world scoping is rarely this clean. |
 
-**Bottom line for decision-makers:** this wasn't evaluated once and shipped — it was pressure-tested against the specific ways scoring tools typically fail in production, and it held up on every check, with the one soft spot (raw-probability precision) already designed around via the ranked-list approach.
+**Bottom line for decision-makers:** this wasn't evaluated once and shipped — it was pressure-tested against the specific ways scoring tools typically fail in production, and it held up on every check designed around the ranked-list approach.
 
 ---
 
 ## Business Impact
 
-- **Nearly double the results from the same team.** Directing outreach by this ranking captures ~98% more true underperformers than working the portfolio in no particular order — with the identical number of calls.
+- **Nearly double the results from the same team.** Directing partner outreach by this ranking captures ~98% more true underperformers than working the portfolio in random order — with the identical number of calls.
 - **Proven at real-world scale.** Built and tested against 150,000+ simulated hotel-partner records, not a small pilot sample.
-- **Points to the fix, not just the problem.** The top three risk drivers — content completeness, price position, and promotion depth — are all things a partner-success rep can act on directly, unlike fixed attributes like star rating.
+- **Points to the solution, not just the problem.** The top three risk drivers — content completeness, price position, and promotion depth — are all things a partner-success rep can act on directly, unlike fixed attributes like star rating.
 - **Built to be trusted, not just accurate.** Stress-tested against six separate ways a scoring model can quietly mislead a business (see Model Validation) before being recommended for rollout.
 - **Decision:** default to the simpler, more transparent model for anything reps or partners see directly; reserve the more complex model for cases needing a deeper, per-partner explanation.
 
@@ -134,7 +134,7 @@ A model that looks good on paper can still fail in the real world in specific, p
 ## Business Recommendations
 
 1. **Roll this out as a ranked call list sized to the team's real capacity** — not a fixed cutoff. Let available hours each cycle decide how far down the list the team works.
-2. **Give reps the reason a partner was flagged, not just the flag** — content, pricing, or promotions — so outreach starts with a fix, not a fishing expedition.
+2. **Give reps the reason a partner was flagged, not just the flag** — content, pricing, or promotions — so outreach starts with a fix.
 3. **Favor the simpler, easier-to-explain model** for anything reps or partners will see directly; save the more complex model for cases needing deeper explanation.
 4. **Treat the cutoff as a staffing decision owned by the business**, not a number buried inside the model.
 
@@ -168,7 +168,7 @@ A model that looks good on paper can still fail in the real world in specific, p
 
 ## Notes
 
-Fully synthetic. No production data, schemas, partner identities, or proprietary business logic from any employer appear in this repo. Methodology reflects professional practice; data generated from scratch, at scale, for public sharing.
+Fully synthetic. No proprietary business logic from any employer appear in this repo. Methodology reflects professional practice.
 
 ---
 
