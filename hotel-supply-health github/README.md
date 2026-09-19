@@ -1,8 +1,9 @@
+
 # Travel Marketplace Supply Health Performance
 
 **Aakanksha Baid** — Analytics Strategy Leader · [LinkedIn](https://linkedin.com/in/aakankshabaid/) · [GitHub](https://github.com/AakankshaBaid)
 
-![Hero](assets/hero_banner.png)
+![Hero](assets/hero_banner.png)<img width="2038" height="553" alt="hero_banner" src="https://github.com/user-attachments/assets/eef911ca-6887-40f9-9530-4499f78ea300" />
 
 ---
 
