@@ -1,4 +1,3 @@
-
 # Travel Marketplace Supply Health Performance
 
 **Aakanksha Baid** — Analytics Strategy Leader · [LinkedIn](https://linkedin.com/in/aakankshabaid/) · [GitHub](https://github.com/AakankshaBaid)
@@ -76,19 +75,22 @@ Full code: [`notebooks/supply_performance_analysis.ipynb`](notebooks/supply_perf
 
 **Model evaluation — ROC and Precision-Recall** *(Exhibit C)*
 
-![Model Evaluation](assets/model_evaluation.png)
+<img width="1710" height="711" alt="model_evaluation" src="https://github.com/user-attachments/assets/e711b751-a418-47b9-a1f6-bd86c0e06688" />
+
 
 **Confusion matrix @ the top-20% operating point** *(Exhibit D)*
 
-![Confusion Matrix](assets/confusion_matrix.png)
+<img width="800" height="674" alt="confusion_matrix" src="https://github.com/user-attachments/assets/6506ee2d-9782-4ab2-8319-0295f2b4dc47" />
 
 **What drives the risk score** *(Exhibit F)*
 
-![Top Drivers](assets/top_drivers.png)
+<img width="1335" height="674" alt="top_drivers" src="https://github.com/user-attachments/assets/5dedec0a-7b88-4785-86c5-2a4d2ad338f0" />
+
 
 **Risk is concentrated, not spread evenly** *(Exhibit E)*
 
-![Capture by Decile](assets/capture_by_decile.png)
+<img width="1485" height="630" alt="capture_by_decile" src="https://github.com/user-attachments/assets/f54a95df-f543-469c-a08e-04eddf672a71" />
+
 
 **Cumulative gains:**
 
@@ -105,9 +107,10 @@ Full code: [`notebooks/supply_performance_analysis.ipynb`](notebooks/supply_perf
 
 A model that looks good on paper can still fail in the real world in specific, predictable ways. Before recommending this for company-wide use, it was tested against six of the most common failure modes — the same checks a rigorous analytics team runs before asking a business to trust a scoring tool with resourcing decisions.
 
-**Model Validation Dashboard** *(Exhibit G)*
+**Model Validation Charts** *(Exhibit G)*
 
-![Validation Dashboard](assets/validation_dashboard.png)
+<img width="2235" height="1269" alt="validation_dashboard" src="https://github.com/user-attachments/assets/2720ded5-0b7c-451c-ad3a-4504c3b1edac" />
+
 
 | Validation | Question | Result |
 |---|---|---|
